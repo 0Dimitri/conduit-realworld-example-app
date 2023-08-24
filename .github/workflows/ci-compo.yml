@@ -12,7 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: test compo
-      - id: foo
         uses: composite_actions/setup@v1
       - name: Build
         run: npm run build -w backend
