@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: test compo
-        uses: setup/composite_actions@v1
+        uses: actions/composite_actions@v1
       - name: Build
         run: npm run build -w backend
   build-frontend:
