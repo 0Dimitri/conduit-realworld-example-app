@@ -14,10 +14,10 @@ jobs:
         uses: ./.github/actions/setup-node
       - name: Build
         run: npm run build -w backend
-      - run: ls backend
+      - run: zip -r dist.zip ./backend/dist
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "./backend/dist/*"
+          artifacts: "dist.zip"
           allowUpdates: true
           tag: "v1"
   # build:
