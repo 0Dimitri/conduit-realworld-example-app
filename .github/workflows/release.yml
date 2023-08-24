@@ -1,0 +1,32 @@
+name: Releases
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  build-backend:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: Installation de NodeJS / Cache / Deps
+        uses: ./.github/actions/setup-node
+      - name: Build
+        run: npm run build -w backend
+      - uses: actions/checkout@v3
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "backend/dist"
+          bodyFile: "body.md"
+          tag: "v1"
+  # build:
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     contents: write
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #   - uses: ncipollo/release-action@v1
+  #     with:
+  #       artifacts: "release.tar.gz,foo/*.txt"
+  #       bodyFile: "body.md"
