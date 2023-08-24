@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: test compo
-      - uses: actions/hello-world-composite-action@v1
+      - uses: copmposite_actione/setup@v1
       - name: Build
         run: npm run build -w backend
   build-frontend:
