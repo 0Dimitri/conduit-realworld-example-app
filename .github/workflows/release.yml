@@ -15,9 +15,10 @@ jobs:
       - name: Build
         run: npm run build -w backend
       - uses: actions/checkout@v3
+      - run: ls
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "backend/dist"
+          artifacts: "./backend/dist/*"
           tag: "v1"
   # build:
   #   runs-on: ubuntu-latest
